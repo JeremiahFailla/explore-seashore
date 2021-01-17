@@ -1,7 +1,9 @@
 .landing {
   min-height: 100vh;
   max-width: 100vw;
-  background: url("./../img/beach\ bridge.webp") no-repeat center / cover;
+  background: url("./../img/cool\ beachjpg.webp") no-repeat;
+  background-position: 0 -150px;
+  background-size: auto auto;
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: hard-light;
   overflow: hidden;
@@ -10,21 +12,38 @@
   position: relative;
   z-index: 1;
 
+  .blurE {
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .z {
+    z-index: 9 !important;
+  }
+
   .heading {
     position: relative;
     border-radius: 10px;
     width: auto;
     margin: 2.5rem auto 2rem;
     height: auto;
-    z-index: 5;
+    z-index: 10;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
-      li a {
-        color: $third;
+      li a i {
+        color: $secondary;
       }
     }
 
     li {
+      transition: inherit;
       position: relative;
       padding: 1rem;
 
@@ -33,9 +52,17 @@
         padding: 5px;
         color: $primary;
         font-size: 1.5rem;
+        transition: all 0.2s ease-in-out;
+
+        i {
+          transition: inherit;
+        }
+
+        &:hover i {
+          color: $third;
+        }
 
         i:hover {
-          color: white;
           transform: scale(2);
         }
       }
@@ -43,31 +70,56 @@
   }
 
   .showcase {
-    flex-grow: 1;
-    // margin-bottom: rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // flex-grow: 1;
+    text-align: center;
+    height: auto;
+    width: auto;
     flex-direction: column;
 
     .text {
-      background-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 0.5) 10%,
-        rgba(0, 0, 0, 0.5) 90%,
-        transparent 100%
-      );
+      // background-image: linear-gradient(
+      //   to right,
+      //   transparent 0%,
+      //   rgba(0, 0, 0, 0.5) 10%,
+      //   rgba(0, 0, 0, 0.5) 90%,
+      //   transparent 100%
+      // );
       // background: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
-      padding: 1.5rem;
+      // padding: 1.5rem;
       flex-direction: column;
 
       .title {
         color: $third;
         font-size: 4rem;
-        letter-spacing: 1rem;
+        letter-spacing: 1.1rem;
+        transform: skewX(-10deg);
+        cursor: context-menu;
+        margin-bottom: 1px;
       }
       .description {
-        margin-top: 1.5rem;
-        font-size: 2rem;
+        display: block;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        color: $third;
+        transition: all 0.4s ease-in-out;
+        font-weight: 500;
+        padding: 1rem;
+        border-radius: 50px;
+        background: rgba(202, 240, 248, 0.7);
+        animation: up-down;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        border: 1px solid rgba(202, 240, 248, 0.9);
+
+        &:hover {
+          background: rgba(202, 240, 248, 0.9);
+          color: rgb(22, 108, 165);
+        }
       }
     }
   }

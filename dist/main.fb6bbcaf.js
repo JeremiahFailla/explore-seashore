@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"css/main.scss":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"node_modules/animate.css/animate.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\img\\beach bridge.webp":[["beach bridge.56a554fd.webp","img/beach bridge.webp"],"img/beach bridge.webp"],"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -197,28 +197,46 @@ module.hot.accept(reloadCSS);
 },{"./..\\webfonts\\fa-brands-400.eot":[["fa-brands-400.1bb139e6.eot","node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"./..\\webfonts\\fa-brands-400.woff2":[["fa-brands-400.1d34615d.woff2","node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"./..\\webfonts\\fa-brands-400.woff":[["fa-brands-400.eca31406.woff","node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"./..\\webfonts\\fa-brands-400.ttf":[["fa-brands-400.df86de32.ttf","node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"./..\\webfonts\\fa-brands-400.svg":[["fa-brands-400.f1eb0e8c.svg","node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"./..\\webfonts\\fa-regular-400.eot":[["fa-regular-400.a2c1909d.eot","node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"./..\\webfonts\\fa-regular-400.woff2":[["fa-regular-400.5ca8c932.woff2","node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"./..\\webfonts\\fa-regular-400.woff":[["fa-regular-400.3c3cc54e.woff","node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"./..\\webfonts\\fa-regular-400.ttf":[["fa-regular-400.cde05ce7.ttf","node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"./..\\webfonts\\fa-regular-400.svg":[["fa-regular-400.6ef294e6.svg","node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"./..\\webfonts\\fa-solid-900.eot":[["fa-solid-900.90890cef.eot","node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"./..\\webfonts\\fa-solid-900.woff2":[["fa-solid-900.da0e0451.woff2","node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"./..\\webfonts\\fa-solid-900.woff":[["fa-solid-900.935b31ea.woff","node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"./..\\webfonts\\fa-solid-900.ttf":[["fa-solid-900.f2409036.ttf","node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"./..\\webfonts\\fa-solid-900.svg":[["fa-solid-900.c87ba59a.svg","node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
 "use strict";
 
-require("./../css/main.scss");
+require("animate.css");
 
 require("./../node_modules/@fortawesome/fontawesome-free/css/all.css");
 
-var landingLinkHandler = function landingLinkHandler() {
-  var header = document.querySelector('.heading');
-  header.addEventListener('mouseenter', function (e) {
-    document.querySelector('.blurE').classList.add('blur');
-    document.querySelector('.heading').classList.add('not-blur');
+// import './../css/main.scss';
+var landingHoverHandler = function landingHoverHandler() {
+  var heading = document.querySelector('.heading');
+  heading.addEventListener('mouseenter', function (e) {
+    document.querySelector('.blurE').style.background = 'rgba(0, 0, 0, 0.8)';
+    document.querySelector('.blurE').classList.add("z");
   });
-  header.addEventListener('mouseleave', function () {
-    document.querySelector('.blurE').classList.remove('blur');
-    document.querySelector('.heading').classList.remove('not-blur');
-  });
+  heading.addEventListener('mouseleave', function () {
+    document.querySelector('.blurE').style.background = 'transparent';
+    document.querySelector('.blurE').classList.remove("z");
+  }); // const title = document.querySelector('.title');
+  // title.addEventListener('mouseenter', () => {
+  //   document.querySelector('.description').classList.remove('hide-text', 'animate__fadeOutRightBig');
+  //   document.querySelector('.description').classList.add('animate__animated', 'animate__fadeInLeftBig');
+  // })
+  // document.querySelector('showcase').addEventListener('mouseleave', () => {
+  //   document.querySelector('.description').classList
+  //     .remove('animate__fadeInLeftBig');
+  //   document.querySelector('.description').classList
+  //     .add('animate__fadeOutRightBig')
+  // })
 };
 
 var init = function init() {
-  landingLinkHandler();
+  // window.onload = function () {
+  //   setTimeout(() => {
+  //     document.querySelector('.loading').style.display = 'none';
+  //   }, 1000)
+  // }
+  console.log(window);
+  console.log('loaded');
+  landingHoverHandler();
 };
 
 init();
-},{"./../css/main.scss":"css/main.scss","./../node_modules/@fortawesome/fontawesome-free/css/all.css":"node_modules/@fortawesome/fontawesome-free/css/all.css"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"animate.css":"node_modules/animate.css/animate.css","./../node_modules/@fortawesome/fontawesome-free/css/all.css":"node_modules/@fortawesome/fontawesome-free/css/all.css"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -246,7 +264,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60238" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50179" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
