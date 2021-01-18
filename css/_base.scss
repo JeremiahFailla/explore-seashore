@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: $secondary;
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -80,5 +80,25 @@ ul {
 
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@keyframes border-animation {
+  0% {
+    height: 100%;
+    width: 0;
+    border-bottom: 2px solid rgb(30, 46, 66);
+  }
+
+  50% {
+    height: 100%;
+    width: 50%;
+    border-bottom: 2px solid rgb(30, 46, 66);
+  }
+
+  100% {
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid rgb(30, 46, 66);
   }
 }

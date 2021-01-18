@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #caf0f8;
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -65,6 +65,23 @@ ul {
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+@keyframes border-animation {
+  0% {
+    height: 100%;
+    width: 0;
+    border-bottom: 2px solid #1e2e42;
+  }
+  50% {
+    height: 100%;
+    width: 50%;
+    border-bottom: 2px solid #1e2e42;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid #1e2e42;
   }
 }
 .landing {
@@ -170,13 +187,74 @@ ul {
 }
 
 .near-by {
+  border-top: 2px solid #002535;
+  padding: 1px 0 1px;
   width: 100%;
-  height: auto;
+  min-height: 250px;
+  background-image: linear-gradient(to bottom, rgba(2, 70, 102, 0.774) 0%, rgba(38, 155, 250, 0.5) 80%, rgba(149, 207, 255, 0.815) 100%);
 }
 .near-by .container {
   width: 90%;
   margin: 1rem auto;
   display: grid;
+  grid-template-columns: repeat(3, 500px);
+  grid-gap: 3rem;
+  justify-content: center;
+}
+.near-by .container .content {
+  background: rgba(2, 128, 153, 0.137);
+  border: 1px solid rgba(2, 128, 153, 0.815);
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  flex-direction: column;
+}
+.near-by .container .content:hover {
+  background: rgba(2, 128, 153, 0.815);
+}
+.near-by .container .content i {
+  margin-right: 2rem;
+  font-size: 2rem;
+  color: #002535;
+}
+.near-by .container .content p {
+  font-size: 1.2;
+  color: #bfd2d9;
+}
+.near-by .container a {
+  margin-top: 1rem;
+  color: #03045e;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.near-by .container a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+.near-by .container a:hover {
+  color: #bad8f0;
+}
+.near-by .container a:hover:before {
+  animation: border-animation 0.75s linear forwards;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  background: black;
+  position: relative;
+}
+footer .container {
+  width: 80%;
+  justify-content: space-evenly;
+}
+footer .container h1 {
+  color: #00b4d8;
 }
 
 /*# sourceMappingURL=/main.54166fbf.css.map */
