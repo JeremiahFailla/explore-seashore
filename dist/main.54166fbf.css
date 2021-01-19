@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Yusei Magic", sans-serif;
@@ -52,8 +53,32 @@ ul {
   color: red;
 }
 
+.active {
+  background: rgba(2, 128, 153, 0.815) !important;
+}
+
 .hide-text {
   color: transparent !important;
+}
+
+.alert {
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  border: 2px solid red;
+  font-size: 0.9rem;
+}
+
+.fail {
+  color: red;
+  border-color: red;
+  background: rgba(7, 4, 4, 0.7);
+}
+
+.success {
+  color: green;
+  border-color: green;
+  background: rgba(255, 255, 255, 0.883);
 }
 
 @keyframes up-down {
@@ -126,11 +151,12 @@ ul {
 .landing .heading li {
   transition: inherit;
   position: relative;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .landing .heading li a {
+  padding: 0;
+  margin: 0;
   position: relative;
-  padding: 5px;
   color: #03045e;
   font-size: 1.5rem;
   transition: all 0.2s ease-in-out;
@@ -190,7 +216,7 @@ ul {
   border-top: 2px solid #002535;
   padding: 1px 0 1px;
   width: 100%;
-  min-height: 250px;
+  min-height: 300px;
   background-image: linear-gradient(to bottom, rgba(2, 70, 102, 0.774) 0%, rgba(38, 155, 250, 0.5) 80%, rgba(149, 207, 255, 0.815) 100%);
 }
 .near-by .container {
@@ -226,6 +252,7 @@ ul {
   color: #03045e;
   position: relative;
   transition: all 0.5s ease-in-out;
+  padding-bottom: 8px;
 }
 .near-by .container a::before {
   content: "";
@@ -243,18 +270,177 @@ ul {
   animation: border-animation 0.75s linear forwards;
 }
 
+.directions {
+  position: relative;
+  border-top: 2px solid #002535;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: url("/map.065a0aff.webp") no-repeat, linear-gradient(to bottom, rgba(144, 212, 243, 0.774) 0%, rgba(38, 155, 250, 0.5) 80%, rgba(149, 207, 255, 0.815) 100%);
+  z-index: 2;
+}
+.directions::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  clip-path: polygon(0 79%, 0% 100%, 100% 100%);
+  background: linear-gradient(to bottom, #90d4f3 0%, #269bfa 80%, #95cfff 100%);
+  z-index: 5;
+}
+.directions .container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+}
+.directions .container .content {
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 3rem;
+  background: #94caf6;
+  width: 500px;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 1px 2px 10px 1px;
+  height: auto;
+}
+.directions .container .content:hover {
+  background: #0697b4;
+}
+.directions .container .content:hover p {
+  color: #c2f8ff;
+}
+.directions .container .content:hover a {
+  color: #77f0ea;
+}
+.directions .container .content p {
+  color: #044862;
+  font-size: 1.1rem;
+  transition: all 0.6s ease-in-out;
+}
+.directions .container .content a {
+  display: inline-block;
+  color: #7105ff;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  padding-bottom: 8px;
+  padding-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.directions .container .content a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+.directions .container .content a:hover {
+  transform: scale(1.1);
+  color: #7bff00;
+}
+.directions .container .content a:hover:before {
+  animation: border-animation 0.75s linear forwards;
+  border-color: #2bdbbe !important;
+}
+
 footer {
+  border-top: 2px solid #002535;
   width: 100%;
   height: auto;
-  background: black;
+  background: #88cdf5;
   position: relative;
 }
 footer .container {
-  width: 80%;
-  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
-footer .container h1 {
+footer .container .update-form {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #90d4f3 0%, #269bfa 80%, #95cfff 100%);
+  padding: 2rem;
+  color: #084c6b;
+}
+footer .container .update-form .form-title {
+  margin-bottom: 1rem;
+  color: #02364d;
+  font-weight: 600;
+  border-bottom: 2px solid;
+  padding-bottom: 0.5rem;
+}
+footer .container .update-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #02364d;
+  outline: none;
+  padding: 5px;
+  position: relative;
+}
+footer .container .update-form input:focus {
+  transform: scale(1.1);
+  color: #7105ff;
+}
+footer .container .update-form input:hover {
+  cursor: pointer;
+}
+footer .container .update-form .email-input,
+footer .container .update-form .name-input {
+  margin-bottom: 1rem;
+}
+footer .container .update-form label:after {
+  content: " *";
+}
+footer .container .update-form .submit {
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  border: none;
+  outline: none;
+  background: rgba(2, 128, 153, 0.815);
+  color: #ecddff;
+  transition: all 0.3s ease-in;
+  border: 1px solid transparent;
+}
+footer .container .update-form .submit:hover {
+  background-color: #002535;
+  color: #ff009d;
+  border: 1px solid #00121a;
+  cursor: pointer;
+}
+footer .container .social-media {
+  border-top-left-radius: 20px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #00121a 0%, #133d5f 80%, #00070c 100%);
+  padding: 1rem;
+}
+footer .container .social-media p {
   color: #00b4d8;
+  font-size: 1.2rem;
+  border-bottom: 2px solid;
+}
+footer .container .social-media .icons a i {
+  padding-top: 1rem;
+  color: #00b4d8;
+  font-size: 1.8rem;
+  margin: 0 0.6rem;
+  transition: all 0.4s ease-in;
+}
+footer .container .social-media .icons a i:hover {
+  color: #ff009d;
 }
 
 /*# sourceMappingURL=/main.54166fbf.css.map */

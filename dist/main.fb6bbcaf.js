@@ -211,28 +211,70 @@ var landingHoverHandler = function landingHoverHandler() {
   heading.addEventListener('mouseleave', function () {
     document.querySelector('.blurE').style.background = 'transparent';
     document.querySelector('.blurE').classList.remove("z");
-  }); // const title = document.querySelector('.title');
-  // title.addEventListener('mouseenter', () => {
-  //   document.querySelector('.description').classList.remove('hide-text', 'animate__fadeOutRightBig');
-  //   document.querySelector('.description').classList.add('animate__animated', 'animate__fadeInLeftBig');
-  // })
-  // document.querySelector('showcase').addEventListener('mouseleave', () => {
-  //   document.querySelector('.description').classList
-  //     .remove('animate__fadeInLeftBig');
-  //   document.querySelector('.description').classList
-  //     .add('animate__fadeOutRightBig')
-  // })
+  });
+};
+
+var clickHandler = function clickHandler() {
+  var nav = document.querySelector('.main-nav');
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('.landL') === null) return;
+
+    if (e.target.parentElement.dataset.link == "contact") {
+      e.preventDefault();
+      document.querySelector('.name-input').focus();
+      console.log('hello');
+      return;
+    }
+
+    document.querySelectorAll('.active').forEach(function (el) {
+      return el.classList.remove('active');
+    });
+    var link = e.target.closest('.link').dataset.link;
+    document.querySelector(".".concat(link)).classList.add('active');
+  });
+};
+
+var submitHandler = function submitHandler() {
+  document.querySelector('.update-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var parent = document.querySelector('.update-form');
+    var name = document.querySelector('.name-input');
+    var email = document.querySelector('.email-input');
+    var nameLabel = document.querySelector('.name-label');
+    var emailLabel = document.querySelector('.email-label');
+
+    if (!name.value || !email.value) {
+      var _html = "\n        <div class=\"alert fail\">\n          <p>Please insert a name and valid email</p>\n        </div>\n      ";
+      parent.insertAdjacentHTML('afterBegin', _html);
+      nameLabel.style.color = 'red';
+      emailLabel.style.color = 'red';
+      setTimeout(function () {
+        document.querySelector('.alert').remove();
+      }, 5000);
+      return;
+    }
+
+    ;
+    var html = "\n        <div class=\"alert success\">\n          <p>Welcome aboard!</p>\n        </div>\n      ";
+    parent.insertAdjacentHTML('afterBegin', html); // put label colors back to defauts
+
+    nameLabel.style.color = 'rgb(8, 76, 107)';
+    emailLabel.style.color = 'rgb(8, 76, 107)'; // clear inputs
+
+    name.value = "";
+    email.value = "";
+    setTimeout(function () {
+      document.querySelector('.alert').remove();
+    }, 5000);
+  });
 };
 
 var init = function init() {
-  // window.onload = function () {
-  //   setTimeout(() => {
-  //     document.querySelector('.loading').style.display = 'none';
-  //   }, 1000)
-  // }
   console.log(window);
   console.log('loaded');
   landingHoverHandler();
+  clickHandler();
+  submitHandler();
 };
 
 init();
@@ -264,7 +306,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63670" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64578" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

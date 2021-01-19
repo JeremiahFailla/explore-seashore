@@ -1,0 +1,101 @@
+.directions {
+  position: relative;
+  border-top: 2px solid #002535;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: url("./../img/map.webp") no-repeat,
+    linear-gradient(
+      to bottom,
+      rgba(144, 212, 243, 0.774) 0%,
+      rgba(38, 155, 250, 0.5) 80%,
+      rgba(149, 207, 255, 0.815) 100%
+    );
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    clip-path: polygon(0 79%, 0% 100%, 100% 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(144, 212, 243, 1) 0%,
+      rgba(38, 155, 250, 1) 80%,
+      rgba(149, 207, 255, 1) 100%
+    );
+    z-index: 5;
+  }
+
+  .container {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+
+    .content {
+      flex-direction: column;
+      border-radius: 5px;
+      padding: 3rem;
+      background: rgb(148, 202, 246);
+      width: 500px;
+      transition: all 0.5s ease-in-out;
+      box-shadow: 1px 2px 10px 1px;
+      height: auto;
+
+      &:hover {
+        background: rgb(6, 151, 180);
+
+        p {
+          color: rgb(194, 248, 255);
+        }
+
+        a {
+          color: rgb(119, 240, 234);
+        }
+      }
+
+      p {
+        color: #044862;
+        font-size: 1.1rem;
+        transition: all 0.6s ease-in-out;
+      }
+
+      a {
+        display: inline-block;
+        color: rgb(113, 5, 255);
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        padding-bottom: 8px;
+        padding-top: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: -2px;
+          width: 0;
+          height: 0;
+          background: transparent;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          color: rgb(123, 255, 0);
+          &:before {
+            animation: border-animation 0.75s linear forwards;
+            border-color: rgb(43, 219, 190) !important;
+          }
+        }
+      }
+    }
+  }
+}

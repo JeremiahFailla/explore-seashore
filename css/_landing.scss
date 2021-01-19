@@ -45,11 +45,12 @@
     li {
       transition: inherit;
       position: relative;
-      padding: 1rem;
+      padding: 1.5rem;
 
       a {
+        padding: 0;
+        margin: 0;
         position: relative;
-        padding: 5px;
         color: $primary;
         font-size: 1.5rem;
         transition: all 0.2s ease-in-out;
