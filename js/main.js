@@ -76,9 +76,24 @@ const submitHandler = function () {
   })
 }
 
+const success = function (position) {
+  const { latitude, longitude } = position.coords;
+  const url = `https://www.google.com/maps/dir/${latitude},${longitude}/Ocean+City,+Maryland/@${latitude},${longitude},11z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x89b8d671ac93de8b:0xb4bc715a3af31672!2m2!1d${longitude}!2d${latitude}!3e0'`
+  document.querySelector('#direction').setAttribute("href", url);
+}
+
+const fail = function () {
+  const url = 'https://www.google.com/maps/@38.0581364,-75.1604048,8.5z';
+  document.querySelector('#direction').setAttribute("href", url);
+}
+
+const getPosition = function () {
+  navigator.geolocation.getCurrentPosition(success, fail)
+}
+
 const init = () => {
-  console.log(window)
   console.log('loaded')
+  getPosition();
   landingHoverHandler();
   clickHandler();
   submitHandler();

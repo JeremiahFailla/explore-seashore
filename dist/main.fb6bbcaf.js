@@ -269,9 +269,26 @@ var submitHandler = function submitHandler() {
   });
 };
 
+var success = function success(position) {
+  var _position$coords = position.coords,
+      latitude = _position$coords.latitude,
+      longitude = _position$coords.longitude;
+  var url = "https://www.google.com/maps/dir/".concat(latitude, ",").concat(longitude, "/Ocean+City,+Maryland/@").concat(latitude, ",").concat(longitude, ",11z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x89b8d671ac93de8b:0xb4bc715a3af31672!2m2!1d").concat(longitude, "!2d").concat(latitude, "!3e0'");
+  document.querySelector('#direction').setAttribute("href", url);
+};
+
+var fail = function fail() {
+  var url = 'https://www.google.com/maps/@38.0581364,-75.1604048,8.5z';
+  document.querySelector('#direction').setAttribute("href", url);
+};
+
+var getPosition = function getPosition() {
+  navigator.geolocation.getCurrentPosition(success, fail);
+};
+
 var init = function init() {
-  console.log(window);
   console.log('loaded');
+  getPosition();
   landingHoverHandler();
   clickHandler();
   submitHandler();
@@ -306,7 +323,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64578" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57771" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
