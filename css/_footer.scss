@@ -10,6 +10,20 @@ footer {
     height: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
+    position: relative;
+
+    @include phone {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include tablet {
+      grid-template-columns: 50% 50%;
+    }
+
+    @include bigTablet {
+      grid-template-columns: 40% 60%;
+    }
 
     .update-form {
       width: 100%;
@@ -93,6 +107,10 @@ footer {
       );
       padding: 1rem;
 
+      @include phone {
+        padding: 2rem;
+      }
+
       p {
         color: $third;
         font-size: 1.2rem;
@@ -109,6 +127,29 @@ footer {
         &:hover {
           color: rgb(255, 0, 157);
         }
+      }
+    }
+
+    .gotop {
+      position: absolute;
+      bottom: 30px;
+      right: 50px;
+      color: #06a0e2;
+      font-size: 2rem;
+      animation: up-down;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: rgb(255, 0, 157);
+      }
+
+      @include phone {
+        margin-top: 2rem;
+        position: relative;
+        bottom: 0;
+        right: 0;
       }
     }
   }

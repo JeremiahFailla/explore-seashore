@@ -1,6 +1,9 @@
 // import './../css/main.scss';
-import 'animate.css'
-import './../node_modules/@fortawesome/fontawesome-free/css/all.css'
+import 'animate.css';
+import './../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import WOW from './../node_modules/wow.js/dist/wow.js'
+// import './../js/wow.min.js'
+import jump from './../node_modules/jump.js/dist/jump.module.js';
 
 const landingHoverHandler = () => {
   const heading = document.querySelector('.heading');
@@ -91,12 +94,43 @@ const getPosition = function () {
   navigator.geolocation.getCurrentPosition(success, fail)
 }
 
+const smoothScroll = function () {
+  const descrBtn = document.querySelector('.description');
+  const goTopBtn = document.querySelector('.gotop');
+  const contact = document.querySelector('.bottom');
+  const nav = document.querySelector('.main-nav');
+
+  nav.addEventListener('click', (e) => {
+    const target = e.target.closest('.link');
+    if (e.target.classList.contains('near')) {
+      jump('.near-by')
+    }
+  })
+
+  contact.addEventListener('click', () => {
+    jump('#footer')
+  })
+
+  descrBtn.addEventListener('click', () => {
+    jump('.near-by');
+  })
+
+  goTopBtn.addEventListener('click', () => {
+    jump('#top');
+  })
+}
+
 const init = () => {
   console.log('loaded')
   getPosition();
   landingHoverHandler();
   clickHandler();
   submitHandler();
+  smoothScroll();
+
+  const wow = new WOW();
+  console.log(wow)
+  wow.init()
 }
 
 init();

@@ -2,15 +2,24 @@
   min-height: 100vh;
   max-width: 100vw;
   background: url("./../img/cool\ beachjpg.webp") no-repeat;
-  background-position: 0 -150px;
+  background-position: 0 0;
   background-size: auto auto;
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: hard-light;
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
+
+  @include tablet {
+    background-position: 0 0;
+  }
+
+  @include bigTablet {
+    background-position: -100px 0;
+    min-height: 80vh;
+  }
 
   .blurE {
     background: transparent;
@@ -81,15 +90,11 @@
     width: auto;
     flex-direction: column;
 
+    @include bigTablet {
+      transform: translate(-50%, -32%);
+    }
+
     .text {
-      // background-image: linear-gradient(
-      //   to right,
-      //   transparent 0%,
-      //   rgba(0, 0, 0, 0.5) 10%,
-      //   rgba(0, 0, 0, 0.5) 90%,
-      //   transparent 100%
-      // );
-      // background: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       // padding: 1.5rem;
       flex-direction: column;
@@ -101,6 +106,10 @@
         transform: skewX(-10deg);
         cursor: context-menu;
         margin-bottom: 1px;
+
+        @include phone {
+          font-size: 2.7rem;
+        }
       }
       .description {
         display: block;
@@ -113,13 +122,16 @@
         border-radius: 50px;
         background: rgba(202, 240, 248, 0.7);
         animation: up-down;
-        animation-duration: 3s;
+        animation-duration: 4s;
         animation-iteration-count: infinite;
         border: 1px solid rgba(202, 240, 248, 0.9);
 
         &:hover {
           background: rgba(202, 240, 248, 0.9);
           color: rgb(22, 108, 165);
+        }
+
+        @include phone {
         }
       }
     }

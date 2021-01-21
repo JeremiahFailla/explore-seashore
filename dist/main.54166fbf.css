@@ -113,15 +113,25 @@ ul {
   min-height: 100vh;
   max-width: 100vw;
   background: url("/cool beachjpg.5d61ee13.webp") no-repeat;
-  background-position: 0 -150px;
+  background-position: 0 0;
   background-size: auto auto;
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: hard-light;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
+}
+@media (max-width: 768px) and (min-width: 421px) {
+  .landing {
+    background-position: 0 0;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .landing {
+    background-position: -100px 0;
+    min-height: 80vh;
+  }
 }
 .landing .blurE {
   background: transparent;
@@ -180,6 +190,11 @@ ul {
   width: auto;
   flex-direction: column;
 }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .landing .showcase {
+    transform: translate(-50%, -32%);
+  }
+}
 .landing .showcase .text {
   border-radius: 10px;
   flex-direction: column;
@@ -192,6 +207,11 @@ ul {
   cursor: context-menu;
   margin-bottom: 1px;
 }
+@media (max-width: 420px) {
+  .landing .showcase .text .title {
+    font-size: 2.7rem;
+  }
+}
 .landing .showcase .text .description {
   display: block;
   margin-top: 2rem;
@@ -203,7 +223,7 @@ ul {
   border-radius: 50px;
   background: rgba(202, 240, 248, 0.7);
   animation: up-down;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   border: 1px solid rgba(202, 240, 248, 0.9);
 }
@@ -211,7 +231,6 @@ ul {
   background: rgba(202, 240, 248, 0.9);
   color: #166ca5;
 }
-
 .near-by {
   border-top: 2px solid #002535;
   padding: 1px 0 1px;
@@ -223,9 +242,29 @@ ul {
   width: 90%;
   margin: 1rem auto;
   display: grid;
-  grid-template-columns: repeat(3, 500px);
+  grid-template-columns: repeat(3, auto);
   grid-gap: 3rem;
   justify-content: center;
+}
+@media (max-width: 420px) {
+  .near-by .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) and (min-width: 421px) {
+  .near-by .container {
+    grid-template-columns: repeat(2, 350px);
+    grid-gap: 2rem;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .near-by .container {
+    grid-template-columns: repeat(2, 475px);
+    grid-gap: 2rem;
+  }
 }
 .near-by .container .content {
   background: rgba(2, 128, 153, 0.137);
@@ -237,6 +276,16 @@ ul {
 }
 .near-by .container .content:hover {
   background: rgba(2, 128, 153, 0.815);
+}
+@media (max-width: 768px) and (min-width: 421px) {
+  .near-by .container .content:nth-of-type(3) {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .near-by .container .content:nth-of-type(3) {
+    grid-column: 1/-1;
+  }
 }
 .near-by .container .content i {
   margin-right: 2rem;
@@ -291,6 +340,12 @@ ul {
   background: linear-gradient(to bottom, #90d4f3 0%, #269bfa 80%, #95cfff 100%);
   z-index: 5;
 }
+@media (max-width: 420px) {
+  .directions {
+    height: auto;
+    padding: 2rem 0;
+  }
+}
 .directions .container {
   width: 70%;
   height: 100%;
@@ -298,6 +353,13 @@ ul {
   position: relative;
   justify-content: flex-end;
   align-items: center;
+  z-index: 10;
+}
+@media (max-width: 420px) {
+  .directions .container {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 .directions .container .content {
   flex-direction: column;
@@ -308,6 +370,11 @@ ul {
   transition: all 0.5s ease-in-out;
   box-shadow: 1px 2px 10px 1px;
   height: auto;
+}
+@media (max-width: 420px) {
+  .directions .container .content {
+    width: auto;
+  }
 }
 .directions .container .content:hover {
   background: #0697b4;
@@ -363,6 +430,23 @@ footer .container {
   height: 100%;
   display: grid;
   grid-template-columns: 30% 70%;
+  position: relative;
+}
+@media (max-width: 420px) {
+  footer .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) and (min-width: 421px) {
+  footer .container {
+    grid-template-columns: 50% 50%;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  footer .container {
+    grid-template-columns: 40% 60%;
+  }
 }
 footer .container .update-form {
   width: 100%;
@@ -427,6 +511,11 @@ footer .container .social-media {
   background: linear-gradient(to bottom, #00121a 0%, #133d5f 80%, #00070c 100%);
   padding: 1rem;
 }
+@media (max-width: 420px) {
+  footer .container .social-media {
+    padding: 2rem;
+  }
+}
 footer .container .social-media p {
   color: #00b4d8;
   font-size: 1.2rem;
@@ -441,6 +530,28 @@ footer .container .social-media .icons a i {
 }
 footer .container .social-media .icons a i:hover {
   color: #ff009d;
+}
+footer .container .gotop {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  color: #06a0e2;
+  font-size: 2rem;
+  animation: up-down;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  transition: all 0.3s ease-in-out;
+}
+footer .container .gotop:hover {
+  color: #ff009d;
+}
+@media (max-width: 420px) {
+  footer .container .gotop {
+    margin-top: 2rem;
+    position: relative;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 /*# sourceMappingURL=/main.54166fbf.css.map */
