@@ -25,7 +25,7 @@ const clickHandler = function () {
     if (e.target.parentElement.dataset.link == "contact") {
       e.preventDefault()
       document.querySelector('.name-input').focus();
-      console.log('hello')
+      
       return;
     }
 
@@ -101,7 +101,8 @@ const smoothScroll = function () {
 
   nav.addEventListener('click', (e) => {
     const target = e.target.closest('.link');
-    if (e.target.classList.contains('near')) {
+    if (target.classList.contains('near')) {
+      console.log('works')
       jump('.near-by')
     }
   })
