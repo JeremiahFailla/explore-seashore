@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
   <link rel="stylesheet" href="./css/main.scss">
-  <script src="./js/wow.min.js" defer></script>
   <script src="./js/main.js" defer></script>
 
   <title>Explore The Seashore</title>
@@ -16,7 +15,7 @@
   </div> -->
   <section class="landing" id="top">
     <div class="blurE"></div>
-    <header class="heading flex animate__animated animate__rotateInUpRight">
+    <header class="heading flex" data-aos="fade-up" data-aos-once="false" data-aos-duration="1000">
       <ul class="main-nav flex">
         <li><a href="#near-by" class="link landL near" data-link="guide"><i class="fas fa-map"></i></a></li>
         <li><a href="#near-by" class="link landL near" data-link="food"><i class="fas fa-utensils"></i></a></li>
@@ -25,8 +24,8 @@
       </ul>
     </header>
     <div class="showcase flex">
-        <div class="text flex">
-          <h1 class="title animate__animated animate__rotateInDownRight">Explore The Seashore</h1>
+        <div class="text flex" data-aos="flip-up" data-aos-duration="1000" data-aos-once="false">
+          <h1 class="title">Explore The Seashore</h1>
           <a href="#near-by" class="link description">Come explore the shores of Maryland</a>
         </div>
     </div>
@@ -34,7 +33,7 @@
 
   <section class="near-by flex" id="near-by">
     <div class="container">
-      <div class="content guide flex">
+      <div class="content guide flex" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-once="false">
         <div class="flex"> 
           <i class="fas fa-map"></i>
           <p>
@@ -43,7 +42,7 @@
         </div>
         <a href="https://gooceancity.guide/" class="link" target="_blank">Guides</a>
       </div>
-      <div class="content food flex">
+      <div class="content food flex" data-aos="zoom-out-up" data-aos-duration="1000" data-aos-once="false">
         <div class="flex">
           <i class="fas fa-utensils"></i>
           <p>
@@ -52,7 +51,7 @@
         </div>
         <a href="https://ococean.com/eat" target="_blank" class="link">Local Restaurants</a>
       </div>
-      <div class="content hotel flex">
+      <div class="content hotel flex" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="false">
         <div class="flex">
           <i class="fas fa-building"></i>
           <p>
@@ -65,7 +64,7 @@
   </section>
   <section class="directions">
     <div class="container">
-      <div class="content flex">
+      <div class="content flex" data-aos="fade-left" data-aos-duration="1000" data-aos-once="false">
         <p>Come visit one of the most popular beaches on the east coast which is home to nearly seven thounsand residents.</p>
         <a href="" target="_blank" class="link" id="direction">Get Directions</a>
       </div>

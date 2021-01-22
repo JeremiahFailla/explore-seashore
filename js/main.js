@@ -1,8 +1,7 @@
 // import './../css/main.scss';
-import 'animate.css';
 import './../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import WOW from './../node_modules/wow.js/dist/wow.js'
-// import './../js/wow.min.js'
+import AOS from './../node_modules/aos';
+import './../node_modules/aos/dist/aos.css';
 import jump from './../node_modules/jump.js/dist/jump.module.js';
 
 const landingHoverHandler = () => {
@@ -128,9 +127,7 @@ const init = () => {
   submitHandler();
   smoothScroll();
 
-  const wow = new WOW();
-  console.log(wow)
-  wow.init()
+  AOS.init();
 }
 
 init();
