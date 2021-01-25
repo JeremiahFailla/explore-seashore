@@ -9,6 +9,7 @@
     rgba(38, 155, 250, 0.5) 80%,
     rgba(149, 207, 255, 0.815) 100%
   );
+  overflow: hidden;
 
   .container {
     width: 90%;
@@ -26,12 +27,12 @@
     }
 
     @include tablet {
-      grid-template-columns: repeat(2, 350px);
+      grid-template-columns: repeat(2, auto);
       grid-gap: 2rem;
     }
 
     @include bigTablet {
-      grid-template-columns: repeat(2, 475px);
+      grid-template-columns: repeat(2, auto);
       grid-gap: 2rem;
     }
 
@@ -76,7 +77,7 @@
       padding-bottom: 8px;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         bottom: -2px;
         left: -2px;
